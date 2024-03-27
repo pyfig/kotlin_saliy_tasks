@@ -1,5 +1,5 @@
-https://developer.android.com/training/kotlinplayground <-- компилировать код здесь
+https://play.kotlinlang.org/ <-- компилировать код здесь
 
 ИЛИ 
 
-https://play.kotlinlang.org/ <-- здесь
+https://developer.android.com/training/kotlinplayground <-- здесь
