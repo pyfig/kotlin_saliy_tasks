@@ -1,1 +1,1 @@
-ВСЕМ ПРИВЕТ ЭТО МОЙ КОД ДЛЯ СЛАВНОГО КОЛЛЕДЖА НКЭИВТ
+https://developer.android.com/training/kotlinplayground <-- компилировать код здесь
