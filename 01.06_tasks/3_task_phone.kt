@@ -27,7 +27,8 @@ class FoldablePhone(isScreenLightOn: Boolean = false, var isFolded: Boolean = fa
 
     fun fold() {
         isFolded = true
-        switchOff() 
+        switchOff() // Turn off screen when folded
+    }
 
     fun unfold() {
         isFolded = false
