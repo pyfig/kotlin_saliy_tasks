@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"path": "../../123"
+		},
+		{
+			"path": "../../gergente string"
+		},
+		{
+			"path": "../../fenugreo string"
+		},
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"stdlib.h": "c"
+		}
+	}
+}
