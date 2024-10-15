@@ -1,0 +1,55 @@
+data class Event(
+    val title: String,
+    val description: String,
+    val dayPart: Daypart,
+    val durationInMinutes: Int
+)
+
+enum class Daypart {
+    MORNING, AFTERNOON, EVENING
+}
+
+fun countShortEvents(events: List<Event>): Int {
+    return events.count { it.durationInMinutes <= 60 }
+}
+
+fun groupEventsByDayPart(events: List<Event>): Map<Daypart, List<Event>> {
+    return events.groupBy { it.dayPart }
+}
+
+fun countEventsPerDayPart(events: List<Event>): Map<Daypart, Int> {
+    return events.groupBy { it.dayPart }.mapValues { (_, value) -> value.size }
+}
+
+fun getLastEvent(events: List<Event>): Event? {
+    return events.lastOrNull()
+}
+
+val Event.durationType: String
+    get() = if (durationInMinutes <= 60) "short" else "long"
+
+val events = listOf(
+    Event(title = "Wake up", description = "Time to get up", dayPart = Daypart.MORNING, durationInMinutes = 60),
+    Event(title = "Eat breakfast", description = "Enjoy your meal", dayPart = Daypart.MORNING, durationInMinutes = 15),
+    Event(title = "Learn about Kotlin", description = "Study Kotlin basics", dayPart = Daypart.AFTERNOON, durationInMinutes = 30),
+    Event(title = "Practice Compose", description = "Code with Jetpack Compose", dayPart = Daypart.AFTERNOON, durationInMinutes = 60),
+    Event(title = "Watch latest DevBytes video", description = "Stay updated with Android dev", dayPart = Daypart.AFTERNOON, durationInMinutes = 10),
+    Event(title = "Check out latest Android Jetpack library", description = "Explore new features", dayPart = Daypart.EVENING, durationInMinutes = 45)
+)
+
+fun main() {
+    println("Events grouped by day part:")
+    groupEventsByDayPart(events).forEach { (dayPart, events) ->
+        println("$dayPart: ${events.map { it.title }.joinToString(", ")}")
+    }
+
+    println("\nTotal events count per day part:")
+    countEventsPerDayPart(events).forEach { (dayPart, count) ->
+        println("$dayPart: $count")
+    }
+    
+    println("Last event of the day: ${getLastEvent(events)?.title}")
+
+    println("Duration of first event of the day: ${events.first().durationType}")
+}
+
